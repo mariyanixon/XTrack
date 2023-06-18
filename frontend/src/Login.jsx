@@ -8,13 +8,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  // const handleLogin = () => {
-  //   // Perform login logic here, e.g., sending a request to the server
-
-  //   // Assuming the login is successful, navigate to the home page
-  //   navigate('/home');
-  // };
-
+ 
   const handleLogin = async () => {
     try {
       // Perform login logic here, e.g., sending a request to the server
@@ -55,7 +49,7 @@ const Login = () => {
   return (
     <div className="login-container">
       <div className="video-background">
-        <video src="/Videos/star.mp4.mp4" autoPlay loop muted></video>
+        <video src="/Videos/p.mp4" autoPlay loop muted></video>
       </div>
 
       <div className="login-content">
@@ -117,9 +111,7 @@ const Login = () => {
             <Button id="bt" variant="contained" color="success" onClick={handleLogin}>
               Login
             </Button>
-            <Button id="bt" variant="contained" color="warning">
-              Reset
-            </Button>
+            
           </div>
           <br />
           

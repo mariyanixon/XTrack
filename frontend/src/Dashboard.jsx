@@ -93,7 +93,7 @@ const Dashboard = () => {
     <div>
       <div className="home-container">
         <div className="video-background">
-          <video src="/Videos/c.mp4" autoPlay loop muted></video>
+          <video src="/Videos/p.mp4" autoPlay loop muted></video>
         </div>
         <div className="content">
           <h1 className="heading">Admin Dashboard</h1>

@@ -28,7 +28,7 @@ const AdminLogin = () => {
     <div className="admin-login-container">
       <div className="admin-login-content">
         <div className="video-background">
-          <video src="/Videos/star.mp4.mp4" autoPlay loop muted></video>
+          <video src="/Videos/p.mp4" autoPlay loop muted></video>
         </div>
         <div className="login-content">
           <h1 className="admin-login-title">Admin Login</h1>
