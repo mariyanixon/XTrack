@@ -3,6 +3,7 @@ import { TextField, Button, Typography, AppBar, Box, Toolbar } from '@mui/materi
 import { Link, useNavigate } from 'react-router-dom';
 
 import './Single.css';
+import './Profilepage.css';
 
 const Profilepage = () => {
   const [user, setUser] = useState({

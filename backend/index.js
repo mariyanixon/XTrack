@@ -43,34 +43,79 @@ const app = express();
 app.use(express.json());
 
 // Define the POST route for user registration
+  // app.post('/api/register', (req, res) => {
+  //   console.log("inpost");
+  //   const { name, place, age, email, education, contactDetails, phoneNumber, password } = req.body;
+
+  //   // Create a new user object
+  //   const user = new User({
+  //     _id : name,
+  //     name,
+  //     place,
+  //     age,
+  //     email,
+  //     education,
+  //     contactDetails,
+  //     phoneNumber,
+  //     password
+  //   });
+
+  //   // Save the user to the database
+  //   user.save()
+  //     .then(() => {
+  //       console.log('User registered:', user);
+  //       res.status(200).json({ message: 'User registered successfully' });
+  //     })
+  //     .catch((error) => {
+  //       console.error('Error registering user:', error);
+  //       res.status(500).json({ message: 'Internal server error' });
+  //     });
+  // });
+
+  // Define the POST route for user registration
 app.post('/api/register', (req, res) => {
   console.log("inpost");
   const { name, place, age, email, education, contactDetails, phoneNumber, password } = req.body;
 
-  // Create a new user object
-  const user = new User({
-    _id : name,
-    name,
-    place,
-    age,
-    email,
-    education,
-    contactDetails,
-    phoneNumber,
-    password
-  });
+  // Check if the user with the same name already exists in the database
+  User.findOne({ name: name })
+    .then((existingUser) => {
+      if (existingUser) {
+        // User with the same name already exists
+        console.log('User already exists:', existingUser);
+        res.status(400).json({ message: 'User already exists' });
+      } else {
+        // Create a new user object
+        const user = new User({
+          _id: name,
+          name,
+          place,
+          age,
+          email,
+          education,
+          contactDetails,
+          phoneNumber,
+          password
+        });
 
-  // Save the user to the database
-  user.save()
-    .then(() => {
-      console.log('User registered:', user);
-      res.status(200).json({ message: 'User registered successfully' });
+        // Save the user to the database
+        user.save()
+          .then(() => {
+            console.log('User registered:', user);
+            res.status(200).json({ message: 'User registered successfully' });
+          })
+          .catch((error) => {
+            console.error('Error registering user:', error);
+            res.status(500).json({ message: 'Internal server error' });
+          });
+      }
     })
     .catch((error) => {
-      console.error('Error registering user:', error);
+      console.error('Error checking existing user:', error);
       res.status(500).json({ message: 'Internal server error' });
     });
 });
+
 
 
 // Define the POST route for user login
