@@ -28,9 +28,7 @@ const Navbar = () => {
 
         <Button variant='text' color='warning' id='bt'> <Link to="/profilepage" style={{ color: 'red' }}>PROFILE</Link></Button>
        
-        <Button variant="contained" color="primary" onClick={handleButtonClick}>
-        Transaction
-      </Button>
+       
       <Select
         open={open}
         onClose={handleClose}
@@ -39,8 +37,7 @@ const Navbar = () => {
         onChange={handleTransactionTypeChange}
         style={{ marginLeft: '1rem', color: 'red', display: open ? 'block' : 'none' }}
       >
-        <MenuItem value="Income">Income</MenuItem>
-        <MenuItem value="Expense">Expense</MenuItem>
+       
       </Select>
       </Toolbar>
     </AppBar>
