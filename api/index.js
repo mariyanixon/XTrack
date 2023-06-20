@@ -74,9 +74,6 @@ app.use(express.json());
 
   // Define the POST route for user registration
 
- 
-
-app.use(express.static("public"));
 
 app.post('/api/register', (req, res) => {
   console.log("inpost");
@@ -379,10 +376,6 @@ app.delete('/api/user/:id', async (req, res) => {
     console.error('Error while deleting user:', error);
     res.status(500).json({ message: 'Internal server error' });
   }
-});
-
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'public',  'index.html'));
 });
 
 // Start the server
