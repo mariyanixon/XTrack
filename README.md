@@ -18,6 +18,15 @@
 ```JS 
 app.use(express.static("public"));
 ```
+
+## Add below line in index.js  before app.listen statement 
+```JS
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'public',  'index.html'));
+});
+
+```
+
 ## add vercel.json
 
 ## copy index.js to api/index.js 
