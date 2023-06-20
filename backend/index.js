@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-
+ const path = require("path");
 // Connect to MongoDB
 mongoose.connect('mongodb+srv://mariyanixon:mariyanixon@cluster0.fcvdevs.mongodb.net/', { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Connected to MongoDB'))
@@ -73,6 +73,11 @@ app.use(express.json());
   // });
 
   // Define the POST route for user registration
+
+ 
+
+app.use(express.static("public"));
+
 app.post('/api/register', (req, res) => {
   console.log("inpost");
   const { name, place, age, email, education, contactDetails, phoneNumber, password } = req.body;
