@@ -76,7 +76,7 @@ app.use(express.json());
 
  
 
-app.use(express.static("build"));
+app.use(express.static("public"));
 
 app.post('/api/register', (req, res) => {
   console.log("inpost");
